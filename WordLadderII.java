@@ -64,7 +64,7 @@ class Solution {
     }
     
     public int distance(String a, String b){
-        if(a.equals(b))return 0;
+        
         int dist = 0;
         for(int i=0;i<a.length();i++){
             if(a.charAt(i) != b.charAt(i)){
@@ -72,6 +72,6 @@ class Solution {
                 if(dist>1)return 0;
             }
         }
-        return 1;
+        return dist;
     }
 }
