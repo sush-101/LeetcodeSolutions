@@ -38,3 +38,37 @@ class Solution {
         return -1;
     }
 }
+
+//similar approach optimized space
+
+class Solution {
+    public int[] nextGreaterElements(int[] nums) {
+        if(nums == null || nums.length == 0)
+            return new int[0];
+        int max = nums[0], maxIndex = 0, len = nums.length, index[] = new int[len];
+        for(int i=1;i<len;i++){
+            if(nums[i] > max){
+                max = nums[i];
+                maxIndex = i;
+            }
+        }
+        
+        int i = maxIndex, count = len;
+        while(count--!=0){
+            if(nums[i] == max){
+                index[i] = -1;
+            }else{
+                int indx = i == len-1? 0:i+1;
+                while(nums[indx] <= nums[i]){
+                    indx = index[indx];
+                }
+                index[i] = indx;
+            }
+            i = i == 0?len-1:i-1;
+        }
+       for(int k=0;k<len;k++){
+           index[k] = index[k] == -1? -1 : nums[index[k]];
+       } 
+        return index;
+    }
+}
