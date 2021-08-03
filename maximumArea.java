@@ -7,14 +7,18 @@ class Solution {
         int arr[] = new int[c];
         int res = 0;
         for(int i=0;i<r;i++){
-            for(int j=0;j<c;j++){
-                if(matrix[i][j] == '1'){
-                    arr[j]++;
-                }else arr[j] = 0;
-            }
-            res = Math.max(res, getMaxArea(arr));
+            int curMax = helper(arr,matrix[i]);
+            if(curMax > res)res = curMax;
         }
         return res;
+    }
+    public int helper(int h[],char row[]){
+        int len = row.length;
+        for(int i=0;i<len;i++){
+            if(row[i] == '1')h[i]++;
+            else h[i] = 0;
+        }
+        return getMaxArea(h);
     }
     
     public int getMaxArea(int arr[]){
@@ -22,6 +26,7 @@ class Solution {
         left[0] = -1;right[len-1]=len;
         int res = 0;
         for(int i=1;i<len;i++){
+            if(arr[i] == 0)continue;
             if(arr[i] > arr[i-1])left[i] = i-1;
             else if(arr[i] == arr[i-1])left[i] = left[i-1];
             else{
@@ -33,6 +38,7 @@ class Solution {
             }
         }
         for(int i=len-2;i>=0;i--){
+            if(arr[i] == 0)continue;
             if(arr[i] > arr[i+1])right[i] = i+1;
             else if(arr[i] == arr[i+1])right[i] = right[i+1];
             else{
