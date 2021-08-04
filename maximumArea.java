@@ -1,5 +1,6 @@
 //https://leetcode.com/problems/maximal-rectangle/
 
+//APPROACH 1
 class Solution {
     public int maximalRectangle(char[][] matrix) {
         if(matrix == null || matrix.length == 0)return 0;
@@ -51,6 +52,42 @@ class Solution {
             res = Math.max(res, arr[i]*(right[i]-left[i]-1));
         }
         res = Math.max(res, arr[len-1]*(right[len-1]-left[len-1]-1));
+        return res;
+    }
+}
+
+
+//APPROACH 2
+class Solution {
+    public int maximalRectangle(char[][] matrix) {
+        if(matrix == null || matrix.length == 0)return 0;
+        int r = matrix.length, c = matrix[0].length, heights[] = new int[c], left[] = new int[c],right[] = new int[c], res = 0;
+        Arrays.fill(right, c);
+        
+        for(int i=0;i<r;i++){
+            int cur_left = 0, cur_right = c;
+            for(int j=0;j<c;j++){
+                if(matrix[i][j] == '1'){
+                    heights[j]++;
+                    left[j] = Math.max(left[j], cur_left);
+                }
+                else{
+                    heights[j] = 0;
+                    left[j] = 0;
+                    cur_left = j+1;
+                }
+            }
+            
+            for(int j=c-1;j>=0;j--){
+                if(matrix[i][j] == '1'){
+                    right[j] = Math.min(right[j], cur_right);
+                }else{
+                    right[j] = c;
+                    cur_right = j;
+                }
+                res = Math.max(res, (right[j]-left[j])*heights[j]);
+            }
+        }
         return res;
     }
 }
