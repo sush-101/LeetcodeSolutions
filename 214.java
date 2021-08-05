@@ -46,7 +46,7 @@ To fill the KMP - T.C - O(n)
 
 class Solution {
     public String shortestPalindrome(String s) {
-        String new_s = s + '.' + new StringBuilder(s).reverse().toString();
+        String new_s = new StringBuilder(s).append('.').append(new StringBuilder(s).reverse().toString()).toString();
         int n_len = new_s.length(), kmp[] = new int[n_len];
         char new_str[] = new_s.toCharArray();
         int j = 0;
