@@ -12,21 +12,20 @@ Case2: If new character, count++
 
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        int n = s.length(), res = 0,count = 0;
+        int n = s.length(), res = 0;
         int map[] = new int[128];
         Arrays.fill(map,-1);
         char s_arr[] = s.toCharArray();
         int left = -1;
         for(int i=0;i<n;i++){
             char cur = s_arr[i];
-            if(map[cur]!=-1 && map[cur] > left){
-                res = Math.max(res,count);
+            if(map[cur] > left){
+                res = Math.max(res,i-left-1);
                 left = map[cur];
-                count = i-left;
-            }else count++;
+            }
             map[cur]=i;
         }
-        res = Math.max(res,count);
+        res = Math.max(res,n-1-left);
         return res;
     }
 } //T.C - O(n), space - O(1)
