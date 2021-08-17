@@ -1,3 +1,4 @@
+//https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/
 /*
 The largest number can be at index n-1 or n-2 or n-3 or n-4. Choose smallest number accordingly.
 */
