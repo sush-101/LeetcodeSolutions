@@ -17,7 +17,6 @@ T.C - O(n), space - O(n)
 class Solution {
     public boolean isCompleteTree(TreeNode root) {
         int pow[] = new int[10],prod = 2;
-        pow[0] = 1;
  
         for(int i=0;i<10;i++,prod*=2){
             pow[i] = prod-1;
@@ -43,11 +42,9 @@ class Solution {
             return ans;
         }
         
-        if(left[0]>0 && left[1] < pow[left[0]]){
-            if(right[1] != pow[left[0]-1]){
-                ans[0]=-2;
-                return ans;
-            }
+        if(left[0]>0 && left[1] < pow[left[0]] && right[1] != pow[left[0]-1]){
+            ans[0]=-2;
+            return ans;
         }
         
         ans[1] = left[1]+right[1]+1;
