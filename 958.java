@@ -24,8 +24,7 @@ class Solution {
         }
         
         int res[] = isComplete(root, pow);
-        if(res[0]==-2)return false;
-        return true;
+        return res[0]!=-2;   
     }
     
     int[] isComplete(TreeNode root, int[] pow){ 
