@@ -11,7 +11,7 @@ not a complete bt:
 3. if left subtree is not a perfect binary tree but a complete binary tree, right binary tree should have #2^(height of left)-1
 
 
-T.C - O(n), space - O(1)
+T.C - O(n), space - O(n)
 */
 
 class Solution {
