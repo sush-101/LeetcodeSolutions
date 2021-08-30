@@ -5,6 +5,7 @@
 /*
 dp[i][j] = sum of matrix with corners 0,0 and i,j
 from each index, calculate matrix sum from dp
+T.C - O(mn+Min(m,n)), space - O(mn)
 */
 
 class Solution {
