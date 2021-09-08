@@ -43,7 +43,7 @@ class MyCalendarTwo {
 
 //Approach 2
 /*
-Segment tree. Which updates the tree as and when a new event comes.
+Segment tree. Tree gets updated and traversed in logn time.
 T.C. O(n*logn) (if tree which forms is skewed then n^2)
 Space: O(n)
 */
