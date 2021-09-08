@@ -3,7 +3,7 @@
 //Approach 1
 /*
 basic idea:
-sort the events. If an event starts at a particular time, we increment the count.. if any event which has started before ends then we decrement the count.
+sort the events based on time of start or end. If at a time, an event starts, we increment the count.. if any event which has started before ends then we decrement the count.
 if the count becomes > 2 at any instance, it means there are >2 events at that instance.
 
 T.C: O(n*(logn+n)) => O(n^2 + n*logn) => O(n^2)
