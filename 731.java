@@ -43,7 +43,7 @@ class MyCalendarTwo {
 
 //Approach 2
 /*
-Segment tree. Tree gets updated and traversed in logn time.
+BST. Tree gets updated and traversed in logn time.
 T.C. O(n*logn) (if tree which forms is skewed then n^2)
 Space: O(n)
 */
