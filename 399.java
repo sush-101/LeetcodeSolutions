@@ -1,6 +1,6 @@
 //https://leetcode.com/problems/evaluate-division/
 
-//dfs - T.C - O(V+E), Space - O(E)
+//dfs - T.C - #queries*O(V+E), Space - O(V+E)
 
 class Solution {
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
