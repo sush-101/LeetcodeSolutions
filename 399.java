@@ -38,7 +38,6 @@ class Solution {
             double temp = dfs(e.value,b,graph,vis);
             if(temp!=-1)return e.weight*temp;
         }
-        vis.remove(a);
         return -1;
     }
     
