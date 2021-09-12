@@ -14,30 +14,35 @@ T.C - (Σ mCx)*n (n -> for comparing answers to n questions)
       x from 1 to m
        => (2^m)*n
        
-S.C - O(m*2^m)
+S.C - O(2^m)
 */
 
 class Solution {
-    int dp[][];
+    int dp[];
     public int maxCompatibilitySum(int[][] students, int[][] mentors) {
-        dp = new int[students.length][(int)Math.pow(2, mentors.length)-1];
-        return findAllPossibility(students, mentors, 0, 0);
-        
+        dp = new int[(int)Math.pow(2, mentors.length)-1];
+        return findAllPossibility(students, mentors, 0, 0); 
     }
-    private int findAllPossibility(int [][]students, int[][] mentors, int indx, int mask){
     
-        int local = 0;
+    private int findAllPossibility(int [][]students, int[][] mentors, int indx, int mask){
         if(indx == students.length){
             return 0;
         }
-        if(dp[indx][mask] != 0)return dp[indx][mask];
+        if(dp[mask] != 0)
+            return dp[mask];
+        
+        int local = 0;
         for(int i=0;i<mentors.length;i++){
             int shift = 1<<i;
             if((mask&shift) != 0)continue;
-            int temp = findScore(students[indx], mentors[i]) + findAllPossibility(students, mentors, indx+1, (mask|shift));
-            local = Math.max(local, temp);
+            local = Math.max(local, 
+                             findScore(students[indx], mentors[i]) +
+                             findAllPossibility(
+                                 students, mentors, indx+1, (mask|shift)
+                             )
+                            );
         }
-        dp[indx][mask] = local;
+        dp[mask] = local;
         return local;
     } 
     private int findScore(int a[], int b[]){
