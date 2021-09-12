@@ -8,12 +8,13 @@ function call will be findAllPossibility(students, mentors, indx = 4, 00000111)
 storing the result we get in backtracking from this point in dp array [4][00000111]..
 00000111 this point can be reached in 3! ways...
 so next time, when we get findAllPossibility(students, mentors, indx = 4, 00000111) it can be fetched from dp.
+'m' mentors, 'n' questions
 
-T.C - Σ nCx
-      x from 1 to n
-       => 2^n
+T.C - (Σ mCx)*n (n -> for comparing answers to n questions)
+      x from 1 to m
+       => (2^m)*n
        
-S.C - O(n*2^n)
+S.C - O(m*2^m)
 */
 
 class Solution {
