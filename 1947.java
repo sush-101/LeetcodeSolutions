@@ -11,7 +11,9 @@ so next time, when we get findAllPossibility(students, mentors, indx = 4, 000001
 
 T.C - Σ nCx
       x from 1 to n
-S.C - O(n*2^n) = O(8*2^8)
+       => 2^n
+       
+S.C - O(n*2^n)
 */
 
 class Solution {
