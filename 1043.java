@@ -1,6 +1,5 @@
 //https://leetcode.com/problems/partition-array-for-maximum-sum/
 class Solution {
-    int res = 0;
     public int maxSumAfterPartitioning(int[] arr, int k) {
         int n = arr.length;
         int dp[] = new int[n];
