@@ -5,12 +5,13 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         int prev = -1, prevCount = 0;
         
+        //a=10,b=7,c=6
+        //prevc = 2, prev = 'a'
         for(int i=0;i<a+b+c;i++){
             
-            int cur = getMax(count,-1), toPush = -1;
+            int cur = getMax(count,-1);
             
             if(cur == prev && prevCount == 2){
-                toPush = cur;
                 cur = getMax(count, cur);
                 if(cur == -1)return sb.toString();
             }
