@@ -64,12 +64,12 @@ class Solution {
             map.put(e.getKey(), temp);
             visited.put(e.getKey(), new boolean[e.getValue().size()]);
         }
-        backTrack("JFK", tickets.size());
+        dfs("JFK", tickets.size());
         Collections.reverse(route);
         return route;
     }
     
-    private void backTrack(String cur, int n){
+    private void dfs(String cur, int n){
         if(map.get(cur) == null){
             route.add(cur);
             return;
@@ -80,7 +80,7 @@ class Solution {
         for(String next: map.get(cur)){
             if(vis[i]){i++;continue;}
             vis[i] = true;
-            backTrack(next, n);
+            dfs(next, n);
             i++;
         }
         route.add(cur);
