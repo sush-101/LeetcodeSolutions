@@ -28,3 +28,21 @@ class Solution {
 }
 //https://leetcode.com/problems/longest-consecutive-sequence/
 //T.C & S.C - O(n)
+
+
+//approach2
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        int res = 0;
+        for(int x:nums)set.add(x);
+        for(int x:nums){
+            int cur = 1;
+            if(set.contains(x+1))continue;
+            while(set.contains(--x)){cur++;}
+            res = Math.max(res, cur);
+        }
+        return res;
+    }
+}
+//tc & sc - O(n)
