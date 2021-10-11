@@ -22,10 +22,11 @@ class Solution {
 // A node can give or takes coins = Math.abs(node.val-1)
 //Start from leaf node. If value of left subtree is negative -> it needs coins, else it gives coins
 //if from a subtree, we get -ve and from other subtree +ve, we do moves+= abs(+ve-ve+node.val-1)
+
 class Solution {
     int moves = 0;
     public int distributeCoins(TreeNode root) {
-        getCount(root.left);getCount(root.right);
+        getCount(root);
         return moves;
     }
     private int getCount(TreeNode root){
