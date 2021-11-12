@@ -1,7 +1,9 @@
 //https://leetcode.com/problems/rank-teams-by-votes/
 /*
-general sorting
-t.c-n^2log(n), s.c - O(n) where n is #teams
+typical sorting
+t.c- n^2 + n^2*log(n),  n^2 for filling freq, n^2*log(n) for sorting
+s.c - O(n) where n is #teams
+max value of n is 26.
 */
 
 class Solution {
